@@ -17,6 +17,8 @@
 		0919739827A44788009B899E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919736E27A44783009B899E /* ContentView.swift */; };
 		0919739927A44788009B899E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0919736F27A44787009B899E /* Assets.xcassets */; };
 		0919739A27A44788009B899E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0919736F27A44787009B899E /* Assets.xcassets */; };
+		091973AD27A44B7B009B899E /* Quadratic Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091973AC27A44B7B009B899E /* Quadratic Equation.swift */; };
+		091973AE27A44B7B009B899E /* Quadratic Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091973AC27A44B7B009B899E /* Quadratic Equation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		0919738D27A44788009B899E /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0919739127A44788009B899E /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		0919739327A44788009B899E /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		091973AC27A44B7B009B899E /* Quadratic Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quadratic Equation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,7 @@
 				0919736D27A44783009B899E /* Homework_2App.swift */,
 				0919736E27A44783009B899E /* ContentView.swift */,
 				0919736F27A44787009B899E /* Assets.xcassets */,
+				091973AC27A44B7B009B899E /* Quadratic Equation.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -301,6 +305,7 @@
 			files = (
 				0919739727A44788009B899E /* ContentView.swift in Sources */,
 				0919739527A44788009B899E /* Homework_2App.swift in Sources */,
+				091973AD27A44B7B009B899E /* Quadratic Equation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +315,7 @@
 			files = (
 				0919739827A44788009B899E /* ContentView.swift in Sources */,
 				0919739627A44788009B899E /* Homework_2App.swift in Sources */,
+				091973AE27A44B7B009B899E /* Quadratic Equation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
