@@ -20,7 +20,7 @@ struct ContentView: View {
             Text("a Value")
                 .padding(.top,25)
                 .padding(.bottom, 0)
-            TextField("Enter a value", text: $aString, onCommit: {Task.init {await self.calculatePosQuad(); await self.calculateNegQuad(); await self.calculatePrimePosQuad(); await self.calculatePrimeNegQuad()}})
+            TextField("Enter a value", text: $aString, onCommit: {Task.init {await self.calculateQuadraticEq()}})
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -29,7 +29,7 @@ struct ContentView: View {
             Text("b Value")
                 .padding(.top,25)
                 .padding(.bottom, 0)
-            TextField("Enter b value", text: $bString, onCommit: {Task.init {await self.calculatePosQuad(); await self.calculateNegQuad(); await self.calculatePrimePosQuad(); await self.calculatePrimeNegQuad()}})
+            TextField("Enter b value", text: $bString, onCommit: {Task.init {await self.calculateQuadraticEq()}})
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -39,7 +39,7 @@ struct ContentView: View {
             Text("c Value")
                 .padding(.top,25)
                 .padding(.bottom, 0)
-            TextField("Enter c value", text: $cString, onCommit: {Task.init {await self.calculatePosQuad(); await self.calculateNegQuad(); await self.calculatePrimePosQuad(); await self.calculatePrimeNegQuad()}})
+            TextField("Enter c value", text: $cString, onCommit: {Task.init {await self.calculateQuadraticEq()}})
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -142,7 +142,7 @@ struct ContentView: View {
                 
             }
             
-            Button("Calculate", action: {Task.init { await self.calculateQuadratic(); await self.calculateQuadratic()}})
+            Button("Calculate", action: {Task.init { await self.calculateQuadraticEq(); await self.calculateQuadraticEq()}})
                 .padding(.bottom)
                 .padding()
                 .disabled(quadraticModel.enableButton == false)
@@ -153,7 +153,7 @@ struct ContentView: View {
         
     }
         
-    func calculateQuadratic() async {
+    func calculateQuadraticEq() async {
         
         quadraticModel.setButtonEnable(state: false)
         

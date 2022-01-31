@@ -9,9 +9,9 @@ import SwiftUI
 
 class QuadraticEq: NSObject,ObservableObject {
 
-    var a = 0.0
-    var b = 0.0
-    var c = 0.0
+    var a = 1.0
+    var b = 2.0
+    var c = 3.0
     @Published var xPos = 0.0
     @Published var xNeg = 0.0
     @Published var xPrimeNeg = 0.0
@@ -61,8 +61,8 @@ class QuadraticEq: NSObject,ObservableObject {
                    
                    //posQuadratic = (-b + squrt(((pow(b, 2)) - (4*a*c)), 2))/(2*a)
                    
-                   let root = sqrt(((pow(b, 2)) - (4*a*c)))
-                   let calculatedPosQuadratic = (-b + root)/(2*a)
+                   let root1 = sqrt(((pow(b, 2)) - (4*a*c)))
+                   let calculatedPosQuadratic = (-b + root1)/(2*a)
                    let newXPosText = String(format: "%7.5f", calculatedPosQuadratic)
                    
                    await updateXPos(xPosTextString: newXPosText)
@@ -77,8 +77,8 @@ class QuadraticEq: NSObject,ObservableObject {
                    
                    //negQuadratic = (-b - squrt(((pow(b, 2)) - (4*a*c)), 2))/(2*a)
                    
-                   let root = sqrt(((pow(b, 2)) - (4*a*c)))
-                   let calculatedNegQuadratic = (-b - root)/(2*a)
+                   let root2 = sqrt(((pow(b, 2)) - (4*a*c)))
+                   let calculatedNegQuadratic = (-b - root2)/(2*a)
                    let newXNegText = String(format: "%7.5f", calculatedNegQuadratic)
                    
                    await updateXNeg(xNegTextString: newXNegText)
@@ -92,8 +92,8 @@ class QuadraticEq: NSObject,ObservableObject {
                    
                    //negQuadratic = (-(2*c))/(b + sqrt((pow(b, 2)) - (4*a*c)))
                    
-                   
-                   let calculatedPrimePosQuadratic = (-(2*c))/(b + sqrt((pow(b, 2)) - (4*a*c)))
+                   let root3 = sqrt((pow(b, 2)) - (4*a*c))
+                   let calculatedPrimePosQuadratic = (-(2*c))/(b + root3)
                    let newXPrimePosText = String(format: "%7.5f", calculatedPrimePosQuadratic)
                    
                    await updateXPrimePos(xPrimePosTextString: newXPrimePosText)
@@ -108,8 +108,8 @@ class QuadraticEq: NSObject,ObservableObject {
                    
                    //negQuadratic = (-(2*c))/(b - sqrt((pow(b, 2)) - (4*a*c)))
                    
-                   
-                   let calculatedPrimeNegQuadratic = (-(2*c))/(b - sqrt((pow(b, 2)) - (4*a*c)))
+                   let root4 = sqrt((pow(b, 2)) - (4*a*c))
+                   let calculatedPrimeNegQuadratic = (-(2*c))/(b - root4)
                    let newXPrimeNegText = String(format: "%7.5f", calculatedPrimeNegQuadratic)
                    
                    await updateXPrimeNeg(xPrimeNegTextString: newXPrimeNegText)
@@ -216,7 +216,7 @@ class QuadraticEq: NSObject,ObservableObject {
         
         
         
-}
+
         
         
-}
+
