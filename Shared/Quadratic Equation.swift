@@ -58,8 +58,16 @@ class QuadraticEq: NSObject,ObservableObject {
     
     
         func calculatePosQuad(a: Double, b: Double, c: Double) async -> Double {
-                   
-                   //posQuadratic = (-b + squrt(((pow(b, 2)) - (4*a*c)), 2))/(2*a)
+                  
+            
+            //                                __________
+            //                            | /  2
+            //                    - b  +  |/  b   - 4ac
+            //            x  =   -----------------------
+            //                             2a
+
+
+        
                    
                    let root1 = sqrt(((pow(b, 2)) - (4*a*c)))
                    let calculatedPosQuadratic = (-b + root1)/(2*a)
@@ -75,7 +83,13 @@ class QuadraticEq: NSObject,ObservableObject {
         
         func calculateNegQuad(a: Double, b: Double, c: Double) async -> Double {
                    
-                   //negQuadratic = (-b - squrt(((pow(b, 2)) - (4*a*c)), 2))/(2*a)
+            
+            //                                __________
+            //                            | /  2
+            //                    - b  -  |/  b   - 4ac
+            //            x  =   -----------------------
+            //                             2a
+
                    
                    let root2 = sqrt(((pow(b, 2)) - (4*a*c)))
                    let calculatedNegQuadratic = (-b - root2)/(2*a)
@@ -89,9 +103,15 @@ class QuadraticEq: NSObject,ObservableObject {
                }
         
         func calculatePrimePosQuad(a: Double, b: Double, c: Double) async -> Double {
-                   
-                   //negQuadratic = (-(2*c))/(b + sqrt((pow(b, 2)) - (4*a*c)))
-                   
+                  
+            
+            //                   - 2c
+            //     x  =   -------------------
+            //                   __________
+            //                | /  2
+            //           b +  |/  b  - 4ac
+            
+            
                    let root3 = sqrt((pow(b, 2)) - (4*a*c))
                    let calculatedPrimePosQuadratic = (-(2*c))/(b + root3)
                    let newXPrimePosText = String(format: "%7.5f", calculatedPrimePosQuadratic)
@@ -105,8 +125,15 @@ class QuadraticEq: NSObject,ObservableObject {
         
         
         func calculatePrimeNegQuad(a: Double, b: Double, c: Double) async -> Double {
-                   
-                   //negQuadratic = (-(2*c))/(b - sqrt((pow(b, 2)) - (4*a*c)))
+                  
+            
+            //                   - 2c
+            //     x  =   -------------------
+            //                   __________
+            //                | /  2
+            //           b -  |/  b  - 4ac
+            
+            
                    
                    let root4 = sqrt((pow(b, 2)) - (4*a*c))
                    let calculatedPrimeNegQuadratic = (-(2*c))/(b - root4)
