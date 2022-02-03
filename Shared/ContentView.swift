@@ -11,8 +11,8 @@ struct ContentView: View {
     
     @ObservedObject private var quadraticModel = QuadraticEq()
     @State var aString = "1.0"
-    @State var bString = "2.0"
-    @State var cString = "3.0"
+    @State var bString = "10.0"
+    @State var cString = "1.0"
     
     var body: some View {
         

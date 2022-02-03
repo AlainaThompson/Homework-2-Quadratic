@@ -9,9 +9,9 @@ import SwiftUI
 
 class QuadraticEq: NSObject,ObservableObject {
 
-    var a = 1.0
-    var b = 2.0
-    var c = 3.0
+    var A = 1.0
+    var B = 10.0
+    var C = 1.0
     @Published var xPos = 0.0
     @Published var xNeg = 0.0
     @Published var xPrimeNeg = 0.0
@@ -33,16 +33,18 @@ class QuadraticEq: NSObject,ObservableObject {
     
     
     func initWithQuad(a: Double, b: Double, c: Double) async -> Bool {
-        
+        A = a
+        B = b
+        C = c
             
         let _ = await withTaskGroup(of:  Void.self) { taskGroup in
                 
         
             
-            taskGroup.addTask { let _ = await self.calculatePosQuad(a: self.a, b: self.b, c: self.c)}
-            taskGroup.addTask { let _ = await self.calculateNegQuad(a: self.a, b: self.b, c: self.c)}
-            taskGroup.addTask { let _ = await self.calculatePrimeNegQuad(a: self.a, b: self.b, c: self.c)}
-            taskGroup.addTask { let _ = await self.calculatePrimePosQuad(a: self.a, b: self.b, c: self.c)}
+            taskGroup.addTask { let _ = await self.calculatePosQuad(a: self.A, b: self.B, c: self.C)}
+            taskGroup.addTask { let _ = await self.calculateNegQuad(a: self.A, b: self.B, c: self.C)}
+            taskGroup.addTask { let _ = await self.calculatePrimeNegQuad(a: self.A, b: self.B, c: self.C)}
+            taskGroup.addTask { let _ = await self.calculatePrimePosQuad(a: self.A, b: self.B, c: self.C)}
             
         }
             
@@ -68,17 +70,18 @@ class QuadraticEq: NSObject,ObservableObject {
 
 
         
+            let root1 = sqrt(((pow(b, 2)) - (4*a*c)))
+            let denominator1 = 2*a
+            let numerator1 = -b + root1
+            let calculatedPosQuadratic = numerator1/denominator1
+            let newXPosText = String(format: "%7.5f", calculatedPosQuadratic)
+             
+            await updateXPos(xPosTextString: newXPosText)
+            await newXPosValue(xPosValue: calculatedPosQuadratic)
+           
+            return calculatedPosQuadratic
                    
-                   let root1 = sqrt(((pow(b, 2)) - (4*a*c)))
-                   let calculatedPosQuadratic = (-b + root1)/(2*a)
-                   let newXPosText = String(format: "%7.5f", calculatedPosQuadratic)
-                   
-                   await updateXPos(xPosTextString: newXPosText)
-                   await newXPosValue(xPosValue: calculatedPosQuadratic)
-                   
-                   return calculatedPosQuadratic
-                   
-               }
+        }
         
         
         func calculateNegQuad(a: Double, b: Double, c: Double) async -> Double {
@@ -91,16 +94,18 @@ class QuadraticEq: NSObject,ObservableObject {
             //                             2a
 
                    
-                   let root2 = sqrt(((pow(b, 2)) - (4*a*c)))
-                   let calculatedNegQuadratic = (-b - root2)/(2*a)
-                   let newXNegText = String(format: "%7.5f", calculatedNegQuadratic)
+            let root2 = sqrt(((pow(b, 2)) - (4*a*c)))
+            let denominator2 = 2*a
+            let numerator2 = -b - root2
+            let calculatedNegQuadratic = numerator2/denominator2
+            let newXNegText = String(format: "%7.5f", calculatedNegQuadratic)
                    
-                   await updateXNeg(xNegTextString: newXNegText)
-                   await newXNegValue(xNegValue: calculatedNegQuadratic)
+            await updateXNeg(xNegTextString: newXNegText)
+            await newXNegValue(xNegValue: calculatedNegQuadratic)
                    
-                   return calculatedNegQuadratic
+            return calculatedNegQuadratic
                    
-               }
+        }
         
         func calculatePrimePosQuad(a: Double, b: Double, c: Double) async -> Double {
                   
@@ -112,16 +117,18 @@ class QuadraticEq: NSObject,ObservableObject {
             //           b +  |/  b  - 4ac
             
             
-                   let root3 = sqrt((pow(b, 2)) - (4*a*c))
-                   let calculatedPrimePosQuadratic = (-(2*c))/(b + root3)
-                   let newXPrimePosText = String(format: "%7.5f", calculatedPrimePosQuadratic)
+            let root3 = sqrt((pow(b, 2)) - (4*a*c))
+            let denominator3 = b + root3
+            let numerator3 = -(2*c)
+            let calculatedPrimePosQuadratic = numerator3/denominator3
+            let newXPrimePosText = String(format: "%7.5f", calculatedPrimePosQuadratic)
                    
-                   await updateXPrimePos(xPrimePosTextString: newXPrimePosText)
-                   await newXPrimePosValue(xPrimePosValue: calculatedPrimePosQuadratic)
+            await updateXPrimePos(xPrimePosTextString: newXPrimePosText)
+            await newXPrimePosValue(xPrimePosValue: calculatedPrimePosQuadratic)
                    
-                   return calculatedPrimePosQuadratic
-                   
-               }
+            return calculatedPrimePosQuadratic
+                
+        }
         
         
         func calculatePrimeNegQuad(a: Double, b: Double, c: Double) async -> Double {
@@ -135,16 +142,18 @@ class QuadraticEq: NSObject,ObservableObject {
             
             
                    
-                   let root4 = sqrt((pow(b, 2)) - (4*a*c))
-                   let calculatedPrimeNegQuadratic = (-(2*c))/(b - root4)
-                   let newXPrimeNegText = String(format: "%7.5f", calculatedPrimeNegQuadratic)
+            let root4 = sqrt((pow(b, 2)) - (4*a*c))
+            let denominator4 = b - root4
+            let numerator4 = -(2*c)
+            let calculatedPrimeNegQuadratic = numerator4/denominator4
+            let newXPrimeNegText = String(format: "%7.5f", calculatedPrimeNegQuadratic)
                    
-                   await updateXPrimeNeg(xPrimeNegTextString: newXPrimeNegText)
-                   await newXPrimeNegValue(xPrimeNegValue: calculatedPrimeNegQuadratic)
+            await updateXPrimeNeg(xPrimeNegTextString: newXPrimeNegText)
+            await newXPrimeNegValue(xPrimeNegValue: calculatedPrimeNegQuadratic)
                    
-                   return calculatedPrimeNegQuadratic
-                   
-               }
+            return calculatedPrimeNegQuadratic
+                
+        }
         
         
         
