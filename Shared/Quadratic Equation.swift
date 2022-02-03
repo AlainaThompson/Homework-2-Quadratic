@@ -68,7 +68,7 @@ class QuadraticEq: NSObject,ObservableObject {
             //            x  =   -----------------------
             //                             2a
 
-
+           
         
             let root1 = sqrt(((pow(b, 2)) - (4*a*c)))
             let denominator1 = 2*a
@@ -82,7 +82,7 @@ class QuadraticEq: NSObject,ObservableObject {
             return calculatedPosQuadratic
                    
         }
-        
+           
         
         func calculateNegQuad(a: Double, b: Double, c: Double) async -> Double {
                    
